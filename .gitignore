@@ -1,4 +1,6 @@
-/*.jpg
-/*.docx
 .DS_Store
 Thumbs.db
+desktop.ini
+*.log
+.idea/
+.vscode/
