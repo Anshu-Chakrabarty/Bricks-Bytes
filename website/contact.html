@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Bricks &amp; Bytes Consulting</title>
+  <meta name="description" content="Tell Bricks &amp; Bytes about your learning requirement. Consultations from Tallinn, London and New York.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,640;9..144,700&amp;family=Outfit:wght@360;450;560;650&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="contact" data-email="hello@bricksnbytes.com">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <a class="logo" href="index.html"><img src="assets/logo.svg" alt="" width="40" height="40"><span>Bricks <em>&amp;</em> Bytes</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="about.html" data-nav="about">About Us</a>
+      <a href="services.html" data-nav="services">Services</a>
+      <a href="work.html" data-nav="work">Our Work</a>
+      <a class="btn btn-brick nav-cta" href="contact.html" data-nav="contact">Contact Us</a>
+    </nav>
+  </header>
+  <main id="main">
+    <header class="page-hero" style="--hero: url('../img/photos/tallinn-street.jpg')">
+      <div class="wrap">
+        <p class="eyebrow">Contact Us</p>
+        <h1>Let's build your learning ecosystem.</h1>
+        <p class="lede">Tell us about your requirement. We read every enquiry and reply from Tallinn, with conversations also held on London and New York time.</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap contact-grid">
+        <aside class="contact-card">
+          <p class="eyebrow">Bricks &amp; Bytes Consulting</p>
+          <h2>Tallinn, and then wherever the learners are.</h2>
+          <div class="fact"><b>Email</b><a href="mailto:hello@bricksnbytes.com">hello@bricksnbytes.com</a></div>
+          <div class="fact"><b>Phone</b>Leave a phone or WhatsApp number in the form and we will call you back. A public switchboard number was not included in the approved contact details.</div>
+          <div class="fact"><b>Location</b>Tallinn, Estonia</div>
+          <div class="fact"><b>Global consultations</b>Tallinn (EET) · London (GMT) · New York (EST)</div>
+          <p class="form-note" style="margin-top:1rem">Your information is kept confidential and will only be used to respond to your enquiry. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+        </aside>
+
+        <div>
+          <div class="form-card" id="form-card">
+            <h2>Tell us about your requirement</h2>
+            <p class="form-note">Fields marked * are required. You can select more than one service and more than one type of training.</p>
+            <form id="enquiry" novalidate>
+              <p class="honeypot"><label>Website <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+              <div class="fields">
+                <label>Name *<input name="name" autocomplete="name" required><span class="field-error" data-error="name"></span></label>
+                <label>Company / Organization *<input name="company" autocomplete="organization" required><span class="field-error" data-error="company"></span></label>
+                <label>Work Email *<input name="email" type="email" autocomplete="email" required><span class="field-error" data-error="email"></span></label>
+                <label>Phone / WhatsApp<input name="phone" type="tel" autocomplete="tel"><span class="field-error" data-error="phone"></span></label>
+                <label class="span-2">Country
+                  <select name="country">
+                    <option value="">Select country</option>
+                    <option>Estonia</option><option>United Kingdom</option><option>United States</option><option>India</option><option>Canada</option><option>Germany</option><option>France</option><option>Netherlands</option><option>Sweden</option><option>Finland</option><option>Latvia</option><option>Lithuania</option><option>Poland</option><option>United Arab Emirates</option><option>Singapore</option><option>Australia</option><option>Other</option>
+                  </select>
+                </label>
+              </div>
+
+              <fieldset>
+                <legend class="choice-legend">What can we help you with?</legend>
+                <div class="checks">
+                  <label><input type="checkbox" name="interest" value="LMS Consulting"> LMS Consulting</label>
+                  <label><input type="checkbox" name="interest" value="LMS Implementation / Deployment"> LMS Implementation / Deployment</label>
+                  <label><input type="checkbox" name="interest" value="Learning Content Development"> Learning Content Development</label>
+                  <label><input type="checkbox" name="interest" value="Training Delivery"> Training Delivery</label>
+                  <label><input type="checkbox" name="interest" value="Learning &amp; Training Consultancy"> Learning &amp; Training Consultancy</label>
+                  <label><input type="checkbox" name="interest" value="LMS Hosting / Support"> LMS Hosting / Support</label>
+                  <label><input type="checkbox" name="interest" value="Other"> Other</label>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend class="choice-legend">What type of learning or training are you looking for?</legend>
+                <div class="checks">
+                  <label><input type="checkbox" name="training" value="Employee Training"> Employee Training</label>
+                  <label><input type="checkbox" name="training" value="Employee Onboarding"> Employee Onboarding</label>
+                  <label><input type="checkbox" name="training" value="Product Training"> Product Training</label>
+                  <label><input type="checkbox" name="training" value="Technical Training"> Technical Training</label>
+                  <label><input type="checkbox" name="training" value="Compliance / Awareness"> Compliance / Awareness</label>
+                  <label><input type="checkbox" name="training" value="Customer Training"> Customer Training</label>
+                  <label><input type="checkbox" name="training" value="Sales &amp; Distribution Training"> Sales &amp; Distribution Training</label>
+                  <label><input type="checkbox" name="training" value="Domain-Specific Training"> Domain-Specific Training</label>
+                  <label><input type="checkbox" name="training" value="Other"> Other</label>
+                </div>
+              </fieldset>
+
+              <label>Briefly describe your requirement *
+                <textarea name="requirement" required placeholder="We are looking to implement an LMS for approximately 500 employees and need help with content migration and deployment."></textarea>
+                <span class="field-error" data-error="requirement"></span>
+              </label>
+
+              <fieldset>
+                <legend class="choice-legend">Optional — approximate number of learners</legend>
+                <div class="radios">
+                  <label><input type="radio" name="learners" value="Under 100"> Under 100</label>
+                  <label><input type="radio" name="learners" value="100–500"> 100–500</label>
+                  <label><input type="radio" name="learners" value="500–2,000"> 500–2,000</label>
+                  <label><input type="radio" name="learners" value="2,000–10,000"> 2,000–10,000</label>
+                  <label><input type="radio" name="learners" value="10,000+"> 10,000+</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend class="choice-legend">Optional — current LMS</legend>
+                <div class="radios">
+                  <label><input type="radio" name="lms" value="We don't have an LMS"> We don't have an LMS</label>
+                  <label><input type="radio" name="lms" value="We are evaluating an LMS"> We are evaluating an LMS</label>
+                  <label><input type="radio" name="lms" value="We already use an LMS"> We already use an LMS</label>
+                  <label><input type="radio" name="lms" value="Not sure / Other"> Not sure / Other</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend class="choice-legend">Optional — when are you looking to start?</legend>
+                <div class="radios">
+                  <label><input type="radio" name="start" value="Immediately"> Immediately</label>
+                  <label><input type="radio" name="start" value="Within 1–3 months"> Within 1–3 months</label>
+                  <label><input type="radio" name="start" value="3–6 months"> 3–6 months</label>
+                  <label><input type="radio" name="start" value="6+ months"> 6+ months</label>
+                  <label><input type="radio" name="start" value="Just exploring"> Just exploring</label>
+                </div>
+              </fieldset>
+              <button class="btn btn-brick" type="submit">Submit Enquiry</button>
+              <p class="form-note">Submitting prepares your enquiry and opens it in your email app, addressed to Bricks &amp; Bytes. Nothing is stored on a server until you send that email. <a href="privacy.html">Privacy Policy</a>.</p>
+            </form>
+          </div>
+          <div class="receipt" id="receipt" role="status">
+            <h2>Your enquiry is ready.</h2>
+            <p>Review it below, then send it from your email application. If the email app does not open, copy the text and send it to <a href="mailto:hello@bricksnbytes.com">hello@bricksnbytes.com</a>.</p>
+            <pre id="receipt-body"></pre>
+            <p style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1rem">
+              <a class="btn btn-brick" id="mail-link" href="mailto:hello@bricksnbytes.com">Open in email</a>
+              <button class="btn btn-ghost" id="copy-enquiry" type="button">Copy enquiry</button>
+              <a class="btn btn-ghost" href="contact.html">Start another</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-cta">Let's build your learning ecosystem.</p>
+      <div class="footer-grid">
+        <div><p class="footer-logo"><img src="assets/logo.svg" alt="" width="42" height="42"></p>
+          <h3>Bricks &amp; Bytes Consulting</h3><p>Learning strategy, technology and content for organizations that need learning to work. Headquartered in Tallinn, Estonia.</p></div>
+        <div><h3>Explore</h3><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="solutions.html">Solutions</a></li><li><a href="work.html">Our Work</a></li><li><a href="industries.html">Industries</a></li><li><a href="insights.html">Insights</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div><h3>Services</h3><ul><li><a href="services.html#lms-consulting">LMS Consulting</a></li><li><a href="services.html#implementation">LMS Implementation</a></li><li><a href="services.html#content">Content Development</a></li><li><a href="services.html#delivery">Training Delivery</a></li><li><a href="services.html#consultancy">Learning Consultancy</a></li></ul></div>
+        <div><h3>Tallinn</h3><ul><li>Tallinn, Estonia</li><li><a href="mailto:hello@bricksnbytes.com">hello@bricksnbytes.com</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+      </div>
+      <div class="subfoot"><span>© 2026 Bricks &amp; Bytes Consulting. All rights reserved.</span><span>Supporting photography is used under the Unsplash License. Case illustrations belong to this project.</span></div>
+    </div>
+  </footer>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
