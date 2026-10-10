@@ -1,5 +1,21 @@
 (function () {
   document.documentElement.classList.add("js");
+  var bgKey = "bnb-bg";
+  var bg = "white";
+  try { bg = localStorage.getItem(bgKey) || "white"; } catch (err) { bg = "white"; }
+  if (bg !== "mist" && bg !== "linen") bg = "white";
+  document.body.setAttribute("data-bg", bg);
+  document.querySelectorAll("[data-set-bg]").forEach(function (btn) {
+    btn.setAttribute("aria-pressed", btn.getAttribute("data-set-bg") === bg ? "true" : "false");
+    btn.addEventListener("click", function () {
+      var next = btn.getAttribute("data-set-bg");
+      document.body.setAttribute("data-bg", next);
+      try { localStorage.setItem(bgKey, next); } catch (err) {}
+      document.querySelectorAll("[data-set-bg]").forEach(function (other) {
+        other.setAttribute("aria-pressed", other === btn ? "true" : "false");
+      });
+    });
+  });
   var page = document.body.dataset.page;
   document.querySelectorAll("[data-nav]").forEach(function (link) {
     if (link.dataset.nav === page) link.setAttribute("aria-current", "page");
@@ -21,17 +37,32 @@
     toggle.addEventListener("click", function () {
       var open = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      toggle.textContent = open ? "Close" : "Menu";
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Menu");
       document.body.classList.toggle("nav-open", open);
     });
     nav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         nav.classList.remove("is-open");
         toggle.setAttribute("aria-expanded", "false");
-        toggle.textContent = "Menu";
+        toggle.setAttribute("aria-label", "Menu");
         document.body.classList.remove("nav-open");
       });
     });
+  }
+
+  var motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reveals = document.querySelectorAll(".reveal");
+  if (!motionOk || !("IntersectionObserver" in window)) {
+    reveals.forEach(function (el) { el.classList.add("is-in"); });
+  } else {
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in");
+        seen.unobserve(entry.target);
+      });
+    }, { threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
+    reveals.forEach(function (el) { seen.observe(el); });
   }
 
   document.querySelectorAll("[data-slider]").forEach(initHero);
@@ -123,9 +154,10 @@
 
     form.addEventListener("submit", function (event) {
       event.preventDefault();
-      if (form.company_website && form.company_website.value) return;
+      if (form._honey && form._honey.value) return;
       var data = new FormData(form);
       var errors = validate(form, data);
+      var formError = form.querySelector("[data-form-error]");
       form.querySelectorAll(".field-error").forEach(function (node) { node.textContent = ""; });
       form.querySelectorAll("[aria-invalid]").forEach(function (node) { node.removeAttribute("aria-invalid"); });
       if (Object.keys(errors).length) {
@@ -143,48 +175,64 @@
       var interests = data.getAll("interest");
       var training = data.getAll("training");
       var lines = [
-        "Bricks & Bytes Consulting — new enquiry",
-        "",
         "Name: " + data.get("name"),
         "Company: " + data.get("company"),
         "Work email: " + data.get("email"),
         "Phone / WhatsApp: " + (data.get("phone") || "—"),
         "Country: " + (data.get("country") || "—"),
-        "",
         "Interested in: " + (interests.length ? interests.join(", ") : "—"),
         "Training requirement: " + (training.length ? training.join(", ") : "—"),
-        "",
-        "Requirement:",
-        data.get("requirement"),
-        "",
+        "Requirement: " + data.get("requirement"),
         "Approximate learners: " + (data.get("learners") || "—"),
         "Current LMS: " + (data.get("lms") || "—"),
         "Looking to start: " + (data.get("start") || "—")
       ];
-      var body = lines.join("\n");
-      if (output) output.textContent = body;
-      if (card) card.classList.add("is-hidden");
-      if (receipt) {
-        receipt.classList.add("is-on");
-        receipt.scrollIntoView({ behavior: "smooth", block: "start" });
+      var submit = form.querySelector("[type='submit']");
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = "Sending…";
       }
-      var mail = document.getElementById("mail-link");
-      if (mail) {
-        mail.href = "mailto:" + email + "?subject=" + encodeURIComponent("Learning enquiry from " + data.get("company")) + "&body=" + encodeURIComponent(body);
-      }
-    });
-
-    var copyBtn = document.getElementById("copy-enquiry");
-    if (copyBtn) {
-      copyBtn.addEventListener("click", function () {
-        var text = output ? output.textContent : "";
-        if (navigator.clipboard && text) {
-          navigator.clipboard.writeText(text).then(function () {
-            copyBtn.textContent = "Copied";
-          });
+      fetch("https://formsubmit.co/ajax/" + encodeURIComponent(email), {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          company: data.get("company"),
+          email: data.get("email"),
+          phone: data.get("phone") || "—",
+          country: data.get("country") || "—",
+          interest: interests.length ? interests.join(", ") : "—",
+          training: training.length ? training.join(", ") : "—",
+          requirement: data.get("requirement"),
+          learners: data.get("learners") || "—",
+          lms: data.get("lms") || "—",
+          start: data.get("start") || "—",
+          _replyto: data.get("email"),
+          _subject: "Learning enquiry from " + data.get("company"),
+          _template: "table",
+          _captcha: "false"
+        })
+      }).then(function (res) {
+        return res.json().then(function (body) {
+          return { ok: res.ok, body: body };
+        });
+      }).then(function (result) {
+        var delivered = result.ok && String(result.body && result.body.success) !== "false";
+        if (!delivered) throw new Error((result.body && result.body.message) || "send failed");
+        if (output) output.textContent = lines.join("\n");
+        if (card) card.classList.add("is-hidden");
+        if (receipt) {
+          receipt.classList.add("is-on");
+          receipt.scrollIntoView({ behavior: "smooth", block: "start" });
         }
+      }).catch(function () {
+        if (submit) {
+          submit.disabled = false;
+          submit.textContent = "Submit Enquiry";
+        }
+        if (formError) formError.textContent = "The enquiry could not be sent. Please email support@b-bytes.com directly.";
       });
-    }
+    });
   }
 
   function validate(form, data) {

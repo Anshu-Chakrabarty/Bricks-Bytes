@@ -5,24 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact Us | Bricks &amp; Bytes Consulting</title>
   <meta name="description" content="Tell Bricks &amp; Bytes about your learning requirement. Consultations from Tallinn, London and New York.">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,640;9..144,700&amp;family=Outfit:wght@360;450;560;650&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/site.css?v=9">
 </head>
-<body data-page="contact" data-email="hello@bricksnbytes.com">
+<body data-page="contact" data-email="support@b-bytes.com">
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header" data-header>
-    <a class="logo" href="index.html"><img src="assets/logo.svg" alt="" width="40" height="40"><span>Bricks <em>&amp;</em> Bytes</span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <a class="logo" href="./"><img src="assets/logo.png" alt="Bricks &amp; Bytes Consulting"></a>
+    <div class="header-end">
     <nav id="site-nav" class="site-nav" aria-label="Primary">
-      <a href="index.html" data-nav="home">Home</a>
-      <a href="about.html" data-nav="about">About Us</a>
-      <a href="services.html" data-nav="services">Services</a>
-      <a href="work.html" data-nav="work">Our Work</a>
-      <a class="btn btn-brick nav-cta" href="contact.html" data-nav="contact">Contact Us</a>
+      <a href="./" data-nav="home">Home</a>
+      <a href="about" data-nav="about">About Us</a>
+      <a href="services" data-nav="services">Services</a>
+      <a href="work" data-nav="work">Our Work</a>
+      <a class="btn btn-brick nav-cta" href="contact" data-nav="contact">Contact Us</a>
     </nav>
+    <div class="header-tools">
+      <div class="bg-switch" role="group" aria-label="Background colour">
+        <button type="button" data-set-bg="white" aria-pressed="true"><i></i><span>White</span></button>
+        <button type="button" data-set-bg="mist"><i></i><span>Mist</span></button>
+        <button type="button" data-set-bg="linen"><i></i><span>Linen</span></button>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+    </div>
+  </div>
   </header>
   <main id="main">
     <header class="page-hero" style="--hero: url('../img/photos/tallinn-street.jpg')">
@@ -33,23 +42,34 @@
       </div>
     </header>
     <section class="section">
+      <div class="wrap"><div class="photo-row">
+          <figure><img src="assets/img/photos/tallinn-view.jpg" alt="Tallinn, where the studio is based."><figcaption>Tallinn</figcaption></figure>
+          <figure><img src="assets/img/photos/tallinn-street.jpg" alt="A street in Tallinn Old Town."><figcaption>The old town</figcaption></figure>
+          <figure><img src="assets/img/photos/workshop-table.jpg" alt="A conversation around a working table."><figcaption>The conversation</figcaption></figure>
+        </div>
+        </div>
       <div class="wrap contact-grid">
         <aside class="contact-card">
           <p class="eyebrow">Bricks &amp; Bytes Consulting</p>
           <h2>Tallinn, and then wherever the learners are.</h2>
-          <div class="fact"><b>Email</b><a href="mailto:hello@bricksnbytes.com">hello@bricksnbytes.com</a></div>
-          <div class="fact"><b>Phone</b>Leave a phone or WhatsApp number in the form and we will call you back. A public switchboard number was not included in the approved contact details.</div>
-          <div class="fact"><b>Location</b>Tallinn, Estonia</div>
+          <div class="fact"><b>Email</b><a href="mailto:support@b-bytes.com">support@b-bytes.com</a></div>
+          <div class="fact"><b>Company</b>P J Holdings OÜ, Registry Code 17476534. Bricks &amp; Bytes Consulting is a brand of this company.</div>
+          <div class="fact"><b>Registered address</b>Harju maakond, Tallinn, Kesklinna linnaosa, Tuukri tn 19-202, 10120, Estonia</div>
+          <div class="fact"><b>Phone</b>Leave a phone or WhatsApp number in the form and we will call you back.</div>
           <div class="fact"><b>Global consultations</b>Tallinn (EET) · London (GMT) · New York (EST)</div>
-          <p class="form-note" style="margin-top:1rem">Your information is kept confidential and will only be used to respond to your enquiry. Read the <a href="privacy.html">Privacy Policy</a>.</p>
+          <p class="form-note" style="margin-top:1rem">Your information is kept confidential and will only be used to respond to your enquiry. Read the <a href="privacy">Privacy Policy</a>.</p>
         </aside>
 
         <div>
           <div class="form-card" id="form-card">
             <h2>Tell us about your requirement</h2>
             <p class="form-note">Fields marked * are required. You can select more than one service and more than one type of training.</p>
-            <form id="enquiry" novalidate>
-              <p class="honeypot"><label>Website <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+            <form id="enquiry" action="https://formsubmit.co/support@b-bytes.com" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="Learning enquiry from the Bricks &amp; Bytes website">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://www.b-bytes.com/contact">
+              <p class="honeypot"><label>Website <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
               <div class="fields">
                 <label>Name *<input name="name" autocomplete="name" required><span class="field-error" data-error="name"></span></label>
                 <label>Company / Organization *<input name="company" autocomplete="organization" required><span class="field-error" data-error="company"></span></label>
@@ -126,18 +146,15 @@
                 </div>
               </fieldset>
               <button class="btn btn-brick" type="submit">Submit Enquiry</button>
-              <p class="form-note">Submitting prepares your enquiry and opens it in your email app, addressed to Bricks &amp; Bytes. Nothing is stored on a server until you send that email. <a href="privacy.html">Privacy Policy</a>.</p>
+              <p class="form-note">Your enquiry is sent only to <a href="mailto:support@b-bytes.com">support@b-bytes.com</a>. <a href="privacy">Privacy Policy</a>.</p>
+              <p class="field-error" data-form-error></p>
             </form>
           </div>
           <div class="receipt" id="receipt" role="status">
-            <h2>Your enquiry is ready.</h2>
-            <p>Review it below, then send it from your email application. If the email app does not open, copy the text and send it to <a href="mailto:hello@bricksnbytes.com">hello@bricksnbytes.com</a>.</p>
+            <h2>Your enquiry has been sent.</h2>
+            <p>It was delivered only to <a href="mailto:support@b-bytes.com">support@b-bytes.com</a>. We will reply from that address.</p>
             <pre id="receipt-body"></pre>
-            <p style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1rem">
-              <a class="btn btn-brick" id="mail-link" href="mailto:hello@bricksnbytes.com">Open in email</a>
-              <button class="btn btn-ghost" id="copy-enquiry" type="button">Copy enquiry</button>
-              <a class="btn btn-ghost" href="contact.html">Start another</a>
-            </p>
+            <p style="margin-top:1rem"><a class="btn btn-ghost" href="contact">Start another</a></p>
           </div>
         </div>
       </div>
@@ -145,17 +162,50 @@
   </main>
   <footer class="site-footer">
     <div class="wrap">
-      <p class="footer-cta">Let's build your learning ecosystem.</p>
-      <div class="footer-grid">
-        <div><p class="footer-logo"><img src="assets/logo.svg" alt="" width="42" height="42"></p>
-          <h3>Bricks &amp; Bytes Consulting</h3><p>Learning strategy, technology and content for organizations that need learning to work. Headquartered in Tallinn, Estonia.</p></div>
-        <div><h3>Explore</h3><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="solutions.html">Solutions</a></li><li><a href="work.html">Our Work</a></li><li><a href="industries.html">Industries</a></li><li><a href="insights.html">Insights</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-        <div><h3>Services</h3><ul><li><a href="services.html#lms-consulting">LMS Consulting</a></li><li><a href="services.html#implementation">LMS Implementation</a></li><li><a href="services.html#content">Content Development</a></li><li><a href="services.html#delivery">Training Delivery</a></li><li><a href="services.html#consultancy">Learning Consultancy</a></li></ul></div>
-        <div><h3>Tallinn</h3><ul><li>Tallinn, Estonia</li><li><a href="mailto:hello@bricksnbytes.com">hello@bricksnbytes.com</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="footer-logo" href="./"><img src="assets/logo.png" alt="Bricks &amp; Bytes Consulting"></a>
+          <p>Bricks &amp; Bytes Consulting is a business and consulting brand owned and operated by P J Holdings OÜ, a private limited company registered in Estonia.</p>
+          <p>P J Holdings OÜ | Registry Code: 17476534</p>
+          <p>Harju maakond, Tallinn, Kesklinna linnaosa, Tuukri tn 19-202, 10120, Estonia</p>
+          <p><a href="mailto:support@b-bytes.com">support@b-bytes.com</a></p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="./">Home</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="services">Services</a></li>
+            <li><a href="solutions">Solutions</a></li>
+            <li><a href="work">Our Work</a></li>
+            <li><a href="industries">Industries</a></li>
+            <li><a href="insights">Insights</a></li>
+            <li><a href="contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <ul>
+            <li><a href="services#lms-consulting">LMS Consulting</a></li>
+            <li><a href="services#implementation">LMS Implementation</a></li>
+            <li><a href="services#content">Content Development</a></li>
+            <li><a href="services#delivery">Training Delivery</a></li>
+            <li><a href="services#consultancy">Learning Consultancy</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="subfoot"><span>© 2026 Bricks &amp; Bytes Consulting. All rights reserved.</span><span>Supporting photography is used under the Unsplash License. Case illustrations belong to this project.</span></div>
+      <div class="subfoot">
+        <span>© 2026 Bricks &amp; Bytes Consulting. All rights reserved.</span>
+        <nav class="legal-links" aria-label="Legal">
+          <a href="privacy">Privacy Policy</a>
+          <span aria-hidden="true">|</span>
+          <a href="terms">Terms &amp; Conditions</a>
+          <span aria-hidden="true">|</span>
+          <a href="legal">Legal Information</a>
+        </nav>
+      </div>
     </div>
   </footer>
-  <script src="assets/js/site.js"></script>
+  <script src="assets/js/site.js?v=10"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Bricks & Bytes Consulting
 
-Static website for Bricks & Bytes Consulting, Tallinn.
+Static website for Bricks & Bytes Consulting, Tallinn. The public site is https://www.b-bytes.com/.
 
 Open `index.html`, or serve this folder locally:
 
